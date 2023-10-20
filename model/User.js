@@ -45,8 +45,14 @@ const userSchema = mongoose.Schema({
     },
     jti: {
         type: String,
+    },
+    contact_list: {
+        type: Array
+    },
+    request_list: {
+        type: Array
     }
-})
+}) 
 
 const user = mongoose.model("user", userSchema)
 

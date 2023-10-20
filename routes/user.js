@@ -6,7 +6,7 @@ const { newMessage, getMessages } = require("../controller/messageController")
 
 
 router.post("/add", addUser)
-router.get("/users", getUser)
+router.get("/:id", getUser)
 
 router.post("/conversation", newConversation)
 router.post("/conversation/get", getConversation)

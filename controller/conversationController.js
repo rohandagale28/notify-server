@@ -7,7 +7,7 @@ const newConversation = async (req, res) => {
 
         const exist = await conversation.findOne({ members: { $all: [receiverId, senderId] } })
         if (exist) {
-            return res.status(200).json({ message: "Conversation already exist" })
+            return res.status(200).json({ data: exist })
         }
         const newConversation = new conversation({
             members: [senderId, receiverId]
@@ -23,7 +23,6 @@ const getConversation = async (req, res) => {
     try {
         const senderId = req.body.senderId
         const receiverId = req.body.receiverId
-
         const convo = await conversation.findOne({ members: { $all: [senderId, receiverId] } })
         return res.status(200).json(convo)
     } catch (err) {
